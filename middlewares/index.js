@@ -1,5 +1,5 @@
-const varifyMovieReqBody = require('./verifyMovieReqBody');
+const verifyMovieReqBody = require('./verifyMovieReqBody');
 
 module.exports = {
-    varifyMovieReqBody
+    verifyMovieReqBody
 }

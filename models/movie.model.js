@@ -36,14 +36,14 @@ const movieSchema = new mongoose.Schema({
     releaseStatus: {
         type: String,
         required: true,
-        default: "RELEASE"
+        default: "RELEASED"
     },
     updatedAt: {
         type: Date,
         default: () => {
-            return Date.now()
+            return Date.now();
         }
     }
 })
 
-module.exports = mongoose.model("Movie", movieSchema);
+module.exports = mongoose.model("Movie", movieSchema)

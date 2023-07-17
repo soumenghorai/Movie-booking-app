@@ -20,7 +20,8 @@ db.once("open", () => {
 })
     
 
-require('./routes/movie.route')(app);
+require('./routes/movie.routes')(app);
+require('./routes/theatre.routes')(app);
 
 app.listen(serverConfig.PORT, () => {
     console.log(`Application started on port ${serverConfig.PORT}`);
