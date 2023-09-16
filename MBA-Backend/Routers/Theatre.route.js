@@ -7,7 +7,10 @@ module.exports = function (app) {
     [authJwt.verifyToken],
     theatreController.getAllTheatres
   )
-  // app.get("/MovieBooking/api/v1/theatres/:theatreId", theatreController.getTheatre);
+  app.get(
+    '/MovieBooking/api/v1/theatres/:theatreId',
+    theatreController.getTheatreById
+  )
   app.get(
     '/MovieBooking/api/v1/alltheatres',
     [authJwt.verifyToken],

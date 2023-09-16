@@ -14,7 +14,7 @@ app.use(express.json())
 //   },
 //   (err) => {
 //     console.log('Error: ', err.message)
-//   }
+//   } 
 // )
 mongoose.connect(dbConfig.DB_URL)
 const db = mongoose.connection

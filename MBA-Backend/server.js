@@ -10,8 +10,9 @@ const Theatre = require('./Models/Theatre')
 const Bookings = require('./Models/Bookings')
 const Payments = require('./Models/Payments')
 const Constants = require('./Utills/Constants/userType')
+const cors = require('cors')
 const expressApp = express()
-
+expressApp.use(cors())
 expressApp.use(bodyParser.json())
 expressApp.use(bodyParser.urlencoded({ extended: true }))
 
@@ -38,20 +39,45 @@ async function init() {
     password: bcrypt.hashSync('Welcome', 8),
   })
   const user2 = await Users.create({
-    name: 'Kiran',
+    name: 'Soumen',
     userId: 'customer',
-    email: 'soumenghorai2802@gmail.com',
+    email: 'soumenghorai1212@gmail.com',
     userType: 'CUSTOMER',
     password: bcrypt.hashSync('Welcome', 8),
   })
   await Movies.collection.drop()
-  const movie = await Movies.create({
+  const movie1 = await Movies.create({
     name: 'Radhe Shyam',
     description: 'Comedy Drama Movie',
     casts: ['Prabhas', 'Pooja Hegde'],
     director: 'Radha Krishna Kumar',
     trailerUrl: 'http://RadhaShyam/trailers/1',
-    posterUrl: 'http://radhaShyam/posters/1',
+    posterUrl:
+      'https://c0.wallpaperflare.com/preview/994/724/862/balance-bboy-cool-dance.jpg',
+    language: 'Hindi',
+    releaseDate: '11-02-2022',
+    releaseStatus: 'RELEASED',
+  })
+  const movie2 = await Movies.create({
+    name: 'Radhe Shyam 2',
+    description: 'Comedy Drama Movie',
+    casts: ['Prabhas', 'Pooja Hegde'],
+    director: 'Radha Krishna Kumar',
+    trailerUrl: 'http://RadhaShyam/trailers/1',
+    posterUrl:
+      'https://c0.wallpaperflare.com/preview/994/724/862/balance-bboy-cool-dance.jpg',
+    language: 'Hindi',
+    releaseDate: '11-02-2022',
+    releaseStatus: 'RELEASED',
+  })
+  const movie3 = await Movies.create({
+    name: 'Radhe Shyam 3',
+    description: 'Comedy Drama Movie',
+    casts: ['Prabhas', 'Pooja Hegde'],
+    director: 'Radha Krishna Kumar',
+    trailerUrl: 'http://RadhaShyam/trailers/1',
+    posterUrl:
+      'https://c0.wallpaperflare.com/preview/994/724/862/balance-bboy-cool-dance.jpg',
     language: 'Hindi',
     releaseDate: '11-02-2022',
     releaseStatus: 'RELEASED',
@@ -71,7 +97,7 @@ async function init() {
     city: 'Bangalore',
     description: 'Top class Theatre',
     pinCode: 560052,
-    movies: [movie._id],
+    movies: [movie1._id],
     ownerId: client._id,
   })
   console.log('A movie and a theatre created successfully')
@@ -79,7 +105,7 @@ async function init() {
   const booking = await Bookings.create({
     theatreId: theatre._id,
     userId: user2._id,
-    movieId: movie._id,
+    movieId: movie1._id,
     timing: '9 pm - 12 pm',
     noOfSeats: 5,
   })
